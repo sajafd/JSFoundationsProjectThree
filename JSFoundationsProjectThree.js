@@ -1,7 +1,7 @@
 /**
  * A class for a person. Contains the name and age.
  *
- * Example usage: See lines X-Y
+ * Example usage: let guy = new Person("guy", 32);
  *
  */
 class Person {
@@ -14,13 +14,15 @@ class Person {
 /**
  * A class for an instructor. Extends the Person class defined above. Contains the name, age, and speakingVolume.
  *
+ * speakingVolume: a number between 0 and 100 
+ *
  * Example usage: See lines X-Y
  *
  */
 class Instructor extends Person {
 	constructor(name, age, speakingVolume) {
 		super(name, age);
-		this.speakingVolume = speakingVolume;	// speaking volume should be 0-100
+		this.speakingVolume = speakingVolume;
 	}
 
 	/**
@@ -72,12 +74,12 @@ class Student extends Person {
 }
 
 /**
- * A class for a classroom. Contains the class's instructor, capacity, students, and subject.
+ * A class for a classroom. Contains the classroom's instructor, capacity, students, and subject.
  *
  * instructor: an instance of the Instructor class defined above
- * capacity: a number that means how many students can this classroom have
+ * capacity: the maximum number of students this classroom can have
  * students: an array that is initialized to an empty array
- * subject: a string that means the subject that this class teaches
+ * subject: the subject that this classroom teaches
  *
  * Example usage: See lines X-Y
  *
@@ -95,8 +97,10 @@ class Classroom {
 		}
 	}
 
-	// This is a computed property that return true if this classroom is at its capacity
-	// and returns false if this classroom is not at its capacity.
+	/**
+	 * This is a computed property that return true if this classroom is at its capacity
+	 * and returns false if this classroom is not at its capacity.
+	 */
 	get classFull() {
 		if(this.students.length >= this.capacity) {
 			return true;
