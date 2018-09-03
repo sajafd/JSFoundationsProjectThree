@@ -15,7 +15,7 @@ class Person {
  *
  * speakingVolume: a number between 0 and 100 
  *
- * Example usage: See lines X-Y
+ * Example usage: let jennifer = new Instructor("Jennifer", 32, 30);
  *
  */
 class Instructor extends Person {
@@ -35,7 +35,7 @@ class Instructor extends Person {
 /**
  * A class for a student. Extends the Person class defined above. Contains the name, age, and subjects the student wants to learn.
  *
- * Example usage: See lines X-Y
+ * Example usage: let adam = new Student("Adam", 19, ["Django", "React"]);
  *
  */
 class Student extends Person {
@@ -64,7 +64,7 @@ class Student extends Person {
  * students: an array that is initialized to an empty array
  * subject: the subject that this classroom teaches
  *
- * Example usage: See lines X-Y
+ * Example usage: let reactClass = new Classroom(austin, 5, "React");
  *
  */
 class Classroom {
