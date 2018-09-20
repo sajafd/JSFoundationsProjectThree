@@ -121,11 +121,11 @@ The following code runs the functions defined above
 // let adam = new Student("Adam", 19, ["Django", "React"]);
 // let ghalya = new Student("Ghalya", 29, ["React"]);
 // let rashid = new Student("Rashid", 35, ["Django"]);
-// let Salman = new Student("Salman", 23, ["Django"]);
-// let Aya = new Student("Aya", 26, ["Django", "React"]);
-// let Ali = new Student("Ali", 28, ["React"]);
-// let Ahmad = new Student("Ahmad", 27, ["Django", "React"]);
-// let Malak = new Student("Malak", 31, ["Django", "React"]);
+// let salman = new Student("Salman", 23, ["Django"]);
+// let aya = new Student("Aya", 26, ["Django", "React"]);
+// let ali = new Student("Ali", 28, ["React"]);
+// let ahmad = new Student("Ahmad", 27, ["Django", "React"]);
+// let malak = new Student("Malak", 31, ["Django", "React"]);
 
 // reactClass.addStudent(adam)
 // reactClass.addStudent(ghalya)
