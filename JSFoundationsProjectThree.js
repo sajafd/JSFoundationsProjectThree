@@ -164,22 +164,22 @@ let reactClass = new Classroom(austin, 5, "React");
 let adam = new Student("Adam", 19, ["Django", "React"]);
 let ghalya = new Student("Ghalya", 29, ["React"]);
 let rashid = new Student("Rashid", 35, ["Django"]);
-let Salman = new Student("Salman", 23, ["Django"]);
-let Aya = new Student("Aya", 26, ["Django", "React"]);
-let Ali = new Student("Ali", 28, ["React"]);
-let Ahmad = new Student("Ahmad", 27, ["Django", "React"]);
-let Malak = new Student("Malak", 31, ["Django", "React"]);
+let salman = new Student("Salman", 23, ["Django"]);
+let aya = new Student("Aya", 26, ["Django", "React"]);
+let ali = new Student("Ali", 28, ["React"]);
+let ahmad = new Student("Ahmad", 27, ["Django", "React"]);
+let malak = new Student("Malak", 31, ["Django", "React"]);
 
 reactClass.addStudent(adam)
 reactClass.addStudent(ghalya)
-reactClass.addStudent(Aya)
-reactClass.addStudent(Ali)
-reactClass.addStudent(Ahmad)
+reactClass.addStudent(aya)
+reactClass.addStudent(ali)
+reactClass.addStudent(ahmad)
 
 djangoClass.addStudent(adam)
 djangoClass.addStudent(rashid)
-djangoClass.addStudent(Salman)
-djangoClass.addStudent(Ahmad)
+djangoClass.addStudent(salman)
+djangoClass.addStudent(ahmad)
 
 // this one shuold log "adam is already in this classroom."
 djangoClass.addStudent(adam);
@@ -188,4 +188,4 @@ djangoClass.addStudent(adam);
 djangoClass.addStudent(ghalya);
 
 // This one should log "Sorry, class capacity is full."
-reactClass.addStudent(Malak)
+reactClass.addStudent(malak)
