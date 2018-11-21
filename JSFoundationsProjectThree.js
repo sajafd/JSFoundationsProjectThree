@@ -6,7 +6,8 @@
  */
 class Person {
 	constructor(name, age) {
-		// your code goes here!
+		this._name = name;
+		this._age = age;
 	}
 }
 
@@ -20,15 +21,28 @@ class Person {
  */
 class Instructor extends Person {
 	constructor(name, age, speakingVolume) {
-		// your code goes here!
-	}
+		this._name = name
+		this._age = age}
+
+		set speakingVolume (num) {
+			if (typeof num === 'number' && num > 0 && num < 100){
+				this._speakingVolume = num
+			} else {
+				console.log('Pass in a number between 0 and 100 for speaking volume.')
+			}
+		}
+	
 
 	/**
 	 * Make a method called introduceSelf() that logs an instructor introducing themselves to the class.
 	 * The log should be in ALL CAPS with a bunch of excalamtion marks (!) at the end if this instructor's speakingVolume is greater than 75.
 	 */
-	introduceSelf() {
-		// your code goes here!
+	introduceSelf(){
+		let intro = console.log(`My name is ${this._name} and I am ${this._age} years old.`);
+		if (this._speakingVolume > 75){
+			intro.toUpperCase();	
+			intro += '!!!!!!!'
+		}
 	}
 }
 
@@ -40,19 +54,24 @@ class Instructor extends Person {
  */
 class Student extends Person {
 	constructor(name, age, subjects) {
-		// your code goes here!
+		this._name = name;
+		this._age = age;
+		this._subjects = subjects;
 	}
 
 	// This method should add a subject to this student's array of subjects.
 	// What if the subject already exists in this student's array of subjects?
 	addSubject(subject) {
-		// your code goes here!
+		if (subjects.includes(subject) === false){
+		subjects.push(subject)};
 	}
 
 	// This method should remove a subject from this student's array of subjects.
 	// What if the subject doesn't exist in this student's array of subjects?
 	removeSubject(subject) {
-		// your code goes here!
+		if (subjects.includes(subject) === true){
+			subjects.splice(subject);
+		}
 	}
 }
 
@@ -68,8 +87,11 @@ class Student extends Person {
  *
  */
 class Classroom {
-	constructor(instructor, capacity, subject) {
-		// your code goes here!
+	constructor(instructor, capacity, students, subject) {
+		this._instructor = instructor;
+		this._capacity = capacity;
+		this._students = [];
+		this._subject = subject;
 	}
 
 	/**
@@ -77,22 +99,30 @@ class Classroom {
 	 * and returns false if this classroom is not at its capacity.
 	 */
 	get classFull() {
-		// your code goes here!
+		if (this._students.length <= this._capacity){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// This method should add a student to this classroom
 	addStudent(student) {
-		// your code goes here!
+		students.push(student);
 	}
 
 	// This method should remove a student from this classroom
 	removeStudent(student) {
-		// your code goes here!
+		if (students.includes(student) === true){
+		students.splice(student)
+		} else {
+			console.log (`${student} is not registered in this class`);
+		}
 	}
 
 	// This method should change this classroom's instructor.
 	changeInstructor(instructor) {
-		// your code goes here!
+		this._instructor = instructor;
 	}
 }
 
@@ -109,8 +139,8 @@ The following code runs the functions defined above
  * The following code will create this scenario using the classes defined above.
  */
 
-// let jennifer = new Instructor("Jennifer", 32, 30);
-// jennifer.introduceSelf();
+let jennifer = new Instructor("Jennifer", 32, 30);
+jennifer.introduceSelf();
 
 // let austin = new Instructor("Austin", 33, 80);
 // austin.introduceSelf();
