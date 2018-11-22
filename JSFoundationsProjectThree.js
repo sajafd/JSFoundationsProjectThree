@@ -124,7 +124,7 @@ class Classroom {
 	 * and returns false if this classroom is not at its capacity.
 	 */
 	get classFull() {
-		if (this._students.length <= this._capacity){
+		if (this._students.length >= this._capacity){
 			return true;
 		} else {
 			return false;
@@ -133,17 +133,27 @@ class Classroom {
 
 	// This method should add a student to this classroom
 	addStudent(student) {
-		this._students.push(student)
-		if (Classroom.classFull === true){
+		if (this._students.includes(student)){
+			console.log (`${student.toString()} is already enrolled in this class`)
+		}
+
+		//if (this._subject.includes(chosenSubject) === false) {
+		//	console.log ('chose other subject')
+		//}
+
+		if (this._students.length < this._capacity){
+			this._students.push(student)
+		} else {
 			console.log ('Sorry, class capacity is full');
-			}
-		//if (this._students.includes(student)){
-		//	console.log (`${student} is already enrolled in this class`)
-		// } else {
-		//	this._students.push(student)	
-		// }
-		//if (Classroom.classFull === false){
+		}
+
+		//if (Classroom.classFull === true ){
+		//	console.log('clasroom.classful returned true')
 		//	console.log ('Sorry, class capacity is full')
+		//} else {
+		//	console.log ('classroom.full returned false')
+		//	this._students.push(student);
+		//	}
 		}
 
 	// This method should remove a student from this classroom
@@ -212,7 +222,7 @@ djangoClass.addStudent(ghalya);
 // // This one should log "Sorry, class capacity is full."
 reactClass.addStudent(malak)
 
-console.log ('React Class: ')
-console.log (reactClass.students);
-console.log ('django Class: ')
-console.log (djangoClass.students);
+//console.log ('React Class: ')
+//console.log (reactClass.students);
+//console.log ('django Class: ')
+//console.log (djangoClass.students);
