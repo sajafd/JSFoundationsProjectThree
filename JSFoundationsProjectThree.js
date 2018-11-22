@@ -9,6 +9,14 @@ class Person {
 		this._name = name;
 		this._age = age;
 	}
+	get name() {
+		return this._name;
+	}
+
+	get age(){
+		return this._age;
+	}
+	
 }
 
 /**
@@ -21,8 +29,9 @@ class Person {
  */
 class Instructor extends Person {
 	constructor(name, age, speakingVolume) {
-		this._name = name
-		this._age = age}
+		super(name, age);
+		this._speakingVolume = speakingVolume;
+		}
 
 		set speakingVolume (num) {
 			if (typeof num === 'number' && num > 0 && num < 100){
@@ -37,10 +46,11 @@ class Instructor extends Person {
 	 * Make a method called introduceSelf() that logs an instructor introducing themselves to the class.
 	 * The log should be in ALL CAPS with a bunch of excalamtion marks (!) at the end if this instructor's speakingVolume is greater than 75.
 	 */
-	introduceSelf(){
-		let intro = console.log(`My name is ${this._name} and I am ${this._age} years old.`);
+	introduceSelf(name, age){
+		let intro = `My name is ${this._name} and I am ${this._age} years old.`;
+		console.log(intro)
 		if (this._speakingVolume > 75){
-			intro.toUpperCase();	
+			intro = intro.toUpperCase ();	
 			intro += '!!!!!!!'
 		}
 	}
@@ -54,8 +64,7 @@ class Instructor extends Person {
  */
 class Student extends Person {
 	constructor(name, age, subjects) {
-		this._name = name;
-		this._age = age;
+		super (name, age)
 		this._subjects = subjects;
 	}
 
@@ -94,6 +103,22 @@ class Classroom {
 		this._subject = subject;
 	}
 
+	get instructor (){
+		return this._instructor;
+	}
+
+	get capacity (){
+		return this._capacity
+	}
+
+	get students () {
+		return this._students
+	}
+
+	get subject (){
+		return this._subject
+	}
+
 	/**
 	 * This is a computed property that return true if this classroom is at its capacity
 	 * and returns false if this classroom is not at its capacity.
@@ -108,13 +133,23 @@ class Classroom {
 
 	// This method should add a student to this classroom
 	addStudent(student) {
-		students.push(student);
-	}
+		this._students.push(student)
+		if (Classroom.classFull === true){
+			console.log ('Sorry, class capacity is full');
+			}
+		//if (this._students.includes(student)){
+		//	console.log (`${student} is already enrolled in this class`)
+		// } else {
+		//	this._students.push(student)	
+		// }
+		//if (Classroom.classFull === false){
+		//	console.log ('Sorry, class capacity is full')
+		}
 
 	// This method should remove a student from this classroom
 	removeStudent(student) {
-		if (students.includes(student) === true){
-		students.splice(student)
+		if (this._students.includes(student) === true){
+		this._students.splice(student)
 		} else {
 			console.log (`${student} is not registered in this class`);
 		}
@@ -142,37 +177,42 @@ The following code runs the functions defined above
 let jennifer = new Instructor("Jennifer", 32, 30);
 jennifer.introduceSelf();
 
-// let austin = new Instructor("Austin", 33, 80);
-// austin.introduceSelf();
+let austin = new Instructor("Austin", 33, 80);
+austin.introduceSelf();
 
-// let djangoClass = new Classroom(jennifer, 5, "Django");
-// let reactClass = new Classroom(austin, 5, "React");
+let djangoClass = new Classroom(jennifer, 5, "Django");
+let reactClass = new Classroom(austin, 5, "React");
 
-// let adam = new Student("Adam", 19, ["Django", "React"]);
-// let ghalya = new Student("Ghalya", 29, ["React"]);
-// let rashid = new Student("Rashid", 35, ["Django"]);
-// let salman = new Student("Salman", 23, ["Django"]);
-// let aya = new Student("Aya", 26, ["Django", "React"]);
-// let ali = new Student("Ali", 28, ["React"]);
-// let ahmad = new Student("Ahmad", 27, ["Django", "React"]);
-// let malak = new Student("Malak", 31, ["Django", "React"]);
+let adam = new Student("Adam", 19, ["Django", "React"]);
+let ghalya = new Student("Ghalya", 29, ["React"]);
+let rashid = new Student("Rashid", 35, ["Django"]);
+let salman = new Student("Salman", 23, ["Django"]);
+let aya = new Student("Aya", 26, ["Django", "React"]);
+let ali = new Student("Ali", 28, ["React"]);
+let ahmad = new Student("Ahmad", 27, ["Django", "React"]);
+let malak = new Student("Malak", 31, ["Django", "React"]);
 
-// reactClass.addStudent(adam)
-// reactClass.addStudent(ghalya)
-// reactClass.addStudent(Aya)
-// reactClass.addStudent(Ali)
-// reactClass.addStudent(Ahmad)
+reactClass.addStudent(adam)
+reactClass.addStudent(ghalya)
+reactClass.addStudent(aya)
+reactClass.addStudent(ali)
+reactClass.addStudent(ahmad)
 
-// djangoClass.addStudent(adam)
-// djangoClass.addStudent(rashid)
-// djangoClass.addStudent(Salman)
-// djangoClass.addStudent(Ahmad)
+djangoClass.addStudent(adam)
+djangoClass.addStudent(rashid)
+djangoClass.addStudent(salman)
+djangoClass.addStudent(ahmad)
 
 // // this one shuold log "adam is already in this classroom."
-// djangoClass.addStudent(adam);
+djangoClass.addStudent(adam);
 
 // // this one should log "ghalya can't be added to this class because they chose other subjects."
-// djangoClass.addStudent(ghalya);
+djangoClass.addStudent(ghalya);
 
 // // This one should log "Sorry, class capacity is full."
-// reactClass.addStudent(Malak)
+reactClass.addStudent(malak)
+
+console.log ('React Class: ')
+console.log (reactClass.students);
+console.log ('django Class: ')
+console.log (djangoClass.students);
