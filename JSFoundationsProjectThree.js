@@ -144,6 +144,7 @@ class Classroom {
 
 		if (student._subjects.includes(this._subject) === false) {
 			console.log (`${student.name} cannot be added to this class because he/she chose other subjects.`)
+			return;
 		}
 
 		if (this._students.length < this._capacity){
