@@ -46,12 +46,14 @@ class Instructor extends Person {
 	 * Make a method called introduceSelf() that logs an instructor introducing themselves to the class.
 	 * The log should be in ALL CAPS with a bunch of excalamtion marks (!) at the end if this instructor's speakingVolume is greater than 75.
 	 */
-	introduceSelf(name, age){
-		let intro = `My name is ${this._name} and I am ${this._age} years old.`;
-		console.log(intro)
+	introduceSelf(name, age, speakingVolume){
+		let intro = `My name is ${this._name} and I am ${this._age} years old`;
 		if (this._speakingVolume > 75){
 			intro = intro.toUpperCase ();	
-			intro += '!!!!!!!'
+			intro += '!!!!!!!';
+			console.log(intro);
+		} else {
+			console.log(intro + '.');
 		}
 	}
 }
@@ -66,6 +68,7 @@ class Student extends Person {
 	constructor(name, age, subjects) {
 		super (name, age)
 		this._subjects = subjects;
+		// console.log(`${this._name}'s subjects are ${this._subjects}`)
 	}
 
 	// This method should add a subject to this student's array of subjects.
@@ -73,6 +76,7 @@ class Student extends Person {
 	addSubject(subject) {
 		if (subjects.includes(subject) === false){
 		subjects.push(subject)};
+		// console.log(`${this._name}'s subjects are ${this._subjects}`)
 	}
 
 	// This method should remove a subject from this student's array of subjects.
@@ -116,6 +120,7 @@ class Classroom {
 	}
 
 	get subject (){
+		// console.log('Classroom subject is ' + this._subject)
 		return this._subject
 	}
 
@@ -134,12 +139,12 @@ class Classroom {
 	// This method should add a student to this classroom
 	addStudent(student) {
 		if (this._students.includes(student)){
-			console.log (`${student.toString()} is already enrolled in this class`)
+			console.log (`${student.name} is already enrolled in this class`)
 		}
 
-		//if (this._subject.includes(chosenSubject) === false) {
-		//	console.log ('chose other subject')
-		//}
+		if (student._subjects.includes(this._subject) === false) {
+			console.log (`${student.name} cannot be added to this class because he/she chose other subjects.`)
+		}
 
 		if (this._students.length < this._capacity){
 			this._students.push(student)
@@ -190,8 +195,8 @@ jennifer.introduceSelf();
 let austin = new Instructor("Austin", 33, 80);
 austin.introduceSelf();
 
-let djangoClass = new Classroom(jennifer, 5, "Django");
-let reactClass = new Classroom(austin, 5, "React");
+let djangoClass = new Classroom(jennifer, 5, [], "Django");
+let reactClass = new Classroom(austin, 5, [], "React");
 
 let adam = new Student("Adam", 19, ["Django", "React"]);
 let ghalya = new Student("Ghalya", 29, ["React"]);
