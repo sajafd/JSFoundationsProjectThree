@@ -140,6 +140,7 @@ class Classroom {
 	addStudent(student) {
 		if (this._students.includes(student)){
 			console.log (`${student.name} is already enrolled in this class`)
+			return;
 		}
 
 		if (student._subjects.includes(this._subject) === false) {
@@ -151,6 +152,7 @@ class Classroom {
 			this._students.push(student)
 		} else {
 			console.log ('Sorry, class capacity is full');
+			return;
 		}
 
 		//if (Classroom.classFull === true ){
